@@ -36,11 +36,7 @@ export const AddItemToShop = ({
       setValidationEr(": otherwise you can't sumbmit");
       return;
     }
-    addItem({
-      name: state.name,
-      quantity: state.quantity,
-    });
-
+    addItem(state);
     setState(initialState);
     setValidationEr("");
   };
