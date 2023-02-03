@@ -7,30 +7,32 @@ export const AddItemToShop = ({
 }: {
   addItem: AddItem;
 }): JSX.Element => {
-
   interface CompState {
-    name: string,
-    quantity: string,
+    name: string;
+    quantity: string;
   }
 
   const initialState: CompState = {
-    name: '',
-    quantity: ''
-  }
+    name: "",
+    quantity: "",
+  };
 
+  const [state, setState] = useState(initialState);
 
-  const [state, setState] = useState(initialState)
-
-  const handleState = (e: React.ChangeEvent<HTMLInputElement>, field: keyof Item) => setState({
-    ...state,
-    [field]: e.target.value
-  })
+  const handleState = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    field: keyof Item
+  ) =>
+    setState({
+      ...state,
+      [field]: e.target.value,
+    });
 
   const [validationEr, setValidationEr] = useState<string>();
 
   const handleSubmit = (e: React.FormEvent): void => {
     e.preventDefault();
-    if(Object.keys(state).find((k => !state[k as keyof CompState]))){
+    if (Object.keys(state).find(k => !state[k as keyof CompState])) {
       setValidationEr(": otherwise you can't sumbmit");
       return;
     }
@@ -39,8 +41,8 @@ export const AddItemToShop = ({
       quantity: state.quantity,
     });
 
-    setState(initialState)
-    setValidationEr('');
+    setState(initialState);
+    setValidationEr("");
   };
 
   return (
@@ -52,7 +54,7 @@ export const AddItemToShop = ({
           id="name"
           value={state.name}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            handleState(e, 'name')
+            handleState(e, "name")
           }
           placeholder="*Name"
         />
@@ -63,7 +65,7 @@ export const AddItemToShop = ({
           id="quantity"
           value={state.quantity}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            handleState(e, 'quantity')
+            handleState(e, "quantity")
           }
           placeholder="*Quantity"
         />
