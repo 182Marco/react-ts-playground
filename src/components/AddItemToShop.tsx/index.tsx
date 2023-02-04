@@ -23,10 +23,10 @@ export const AddItemToShop = ({
     e: React.ChangeEvent<HTMLInputElement>,
     field: keyof Item
   ) =>
-    setState({
-      ...state,
+    setState(s => ({
+      ...s,
       [field]: e.target.value,
-    });
+    }));
 
   const [validationEr, setValidationEr] = useState<string>();
 
