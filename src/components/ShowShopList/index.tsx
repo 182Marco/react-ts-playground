@@ -14,7 +14,7 @@ export const ShowShopList = ({
         </tr>
       </thead>
       <tbody className="ShowShopList">
-        {shopList.map((e: Item) => (
+        {shopList.map(e => (
           <tr key={e.id}>
             <td>{e.name}</td>
             <td>{e.quantity? e.quantity : ''}</td> 
