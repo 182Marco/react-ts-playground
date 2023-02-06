@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import ShowShopList from "./components/ShowShopList";
 import AddItemToShop from "./components/AddItemToShop.tsx";
 import { Item } from "./models/mainModels";
+import Modal from "./components/Modal";
 
 export type AddItem = (item : {name: string, quantity: number}) => void
 
@@ -20,24 +21,16 @@ function App() {
       { id: ++shoppingList.length, name: item.name, quantity: item.quantity },
     ]);
 
+  const [openModal, setOpenModal] = useState(false)
 
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />.
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
+        <img src={logo} className="App-logo" alt="logo" />
+        <button onClick={() => setOpenModal(true)}>Open modal</button>
+        {openModal && <Modal content={<p>something</p>} setOpenModal={setOpenModal} />}
         <ShowShopList shopList={shoppingList} />
         <AddItemToShop addItem={addItem} />
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div>
   );
