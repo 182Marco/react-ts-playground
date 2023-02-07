@@ -1,5 +1,5 @@
 import logo from "./../../logo.svg";
-import './index.css'
+import './index.scss'
 import { useEffect, useReducer } from "react";
 import postReducer, { INITIAL_STATE } from "../../reducers/postReducer";
 import {actionTypesEnum as actions} from "../../reducers/actionTypes";

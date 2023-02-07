@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import DOM from "react-dom";
-import "./index.css";
+import "./index.scss";
 
 const overlayRoot = document.getElementById("overlay-root") as HTMLElement;
 

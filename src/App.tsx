@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./App.css";
+import "./App.scss";
 import { Item } from "./models/mainModels";
 import ShowShopList from "./components/ShowShopList";
 import AddItemToShop from "./components/AddItemToShop.tsx";
