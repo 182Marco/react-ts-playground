@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import type { AddItem } from "../../App";
 import { Item } from "../../models/mainModels";
+import './index.scss'
 
 export const AddItemToShop = ({
   addItem,
@@ -42,32 +43,35 @@ export const AddItemToShop = ({
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <p>Each field is required{validationEr}</p>
-      <div>
-        <input
-          type="text"
-          id="name"
-          value={state.name}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            handleState(e, "name")
-          }
-          placeholder="*Name"
-        />
-      </div>
-      <div>
-        <input
-          type="number"
-          id="quantity"
-          value={state.quantity}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            handleState(e, "quantity")
-          }
-          placeholder="*Quantity"
-        />
-      </div>
-      <input type="submit" value="done" />
-    </form>
+    <div className="AddItemToShop">
+      <h4>Form to add Item shoppingList </h4>
+      <form onSubmit={handleSubmit}>
+        <p>Each field is required{validationEr}</p>
+        <div>
+          <input
+            type="text"
+            id="name"
+            value={state.name}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              handleState(e, "name")
+            }
+            placeholder="*Name"
+          />
+        </div>
+        <div>
+          <input
+            type="number"
+            id="quantity"
+            value={state.quantity}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              handleState(e, "quantity")
+            }
+            placeholder="*Quantity"
+          />
+        </div>
+        <input type="submit" value="done" />
+      </form>
+    </div>
   );
 };
 

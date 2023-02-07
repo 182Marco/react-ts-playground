@@ -1,4 +1,5 @@
 import { Item } from "../../models/mainModels";
+import './index.scss'
 
 export const ShowShopList = ({
   shopList,
@@ -7,14 +8,14 @@ export const ShowShopList = ({
 }): JSX.Element => {
 
   return (
-    <table>
+    <table className="ShowShopList">
       <thead>
         <tr>
           <th>Name</th>
           <th>quantity</th>
         </tr>
       </thead>
-      <tbody className="ShowShopList">
+      <tbody>
         {shopList.map(e => (
           <tr key={e.id}>
             <td>{e.name}</td>
