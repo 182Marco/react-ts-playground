@@ -1,18 +1,19 @@
 import { useState } from "react";
 import "./App.css";
+import { Item } from "./models/mainModels";
 import ShowShopList from "./components/ShowShopList";
 import AddItemToShop from "./components/AddItemToShop.tsx";
-import { Item } from "./models/mainModels";
 import ShowPost from "./components/ShowPost";
 import Modal from "./components/Modal";
+import CountComp from "./components/CountComp";
 
-export type AddItem = (item : {name: string, quantity: number}) => void
+export type AddItem = (item : {name: string, quantity: string}) => void
 
 
 function App() {
   const [shoppingList, setShoppingList] = useState<Item[]>([
-    { id: 1, name: "Lemon", quantity: 2 },
-    { id: 2, name: "Spaghetti", quantity: 3 },
+    { id: 1, name: "Lemon", quantity: '2' },
+    { id: 2, name: "Spaghetti", quantity: '4' },
   ]);
 
   const addItem : AddItem = item =>
@@ -29,6 +30,7 @@ function App() {
         <ShowPost />
         <button onClick={() => setOpenModal(true)}>Open modal</button>
         {openModal && <Modal content={<p>something</p>} setOpenModal={setOpenModal} />}
+        <CountComp />
         <ShowShopList shopList={shoppingList} />
         <AddItemToShop addItem={addItem} />
       </header>

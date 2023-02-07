@@ -1,28 +1,44 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import type { AddItem } from "../../App";
+import { Item } from "../../models/mainModels";
 
 export const AddItemToShop = ({
   addItem,
 }: {
   addItem: AddItem;
 }): JSX.Element => {
-  const [name, setName] = useState<string>('');
-  const [quantity, setQuantity] = useState<string>('');
+  interface CompState {
+    name: string;
+    quantity: string;
+  }
+
+  const initialState: CompState = {
+    name: "",
+    quantity: "",
+  };
+
+  const [state, setState] = useState(initialState);
+
+  const handleState = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    field: keyof Item
+  ) =>
+    setState(s => ({
+      ...s,
+      [field]: e.target.value,
+    }));
+
   const [validationEr, setValidationEr] = useState<string>();
 
   const handleSubmit = (e: React.FormEvent): void => {
     e.preventDefault();
-    if (name && quantity) {
-      addItem({
-        name: name,
-        quantity: parseFloat(quantity),
-      });
-      setName("");
-      setQuantity("");
-      setValidationEr("");
+    if (Object.keys(state).find(k => !state[k as keyof CompState])) {
+      setValidationEr(": otherwise you can't sumbmit");
       return;
     }
-    setValidationEr(": otherwise you can't sumbmit");
+    addItem(state);
+    setState(initialState);
+    setValidationEr("");
   };
 
   return (
@@ -32,9 +48,9 @@ export const AddItemToShop = ({
         <input
           type="text"
           id="name"
-          value={name}
+          value={state.name}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            setName(e.target.value)
+            handleState(e, "name")
           }
           placeholder="*Name"
         />
@@ -43,9 +59,9 @@ export const AddItemToShop = ({
         <input
           type="number"
           id="quantity"
-          value={quantity}
+          value={state.quantity}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            setQuantity(e.target.value)
+            handleState(e, "quantity")
           }
           placeholder="*Quantity"
         />
