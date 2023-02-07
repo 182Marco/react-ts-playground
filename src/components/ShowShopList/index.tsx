@@ -5,6 +5,7 @@ export const ShowShopList = ({
 }: {
   shopList: Item[];
 }): JSX.Element => {
+
   return (
     <table>
       <thead>

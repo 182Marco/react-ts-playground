@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import ShowShopList from "./components/ShowShopList";
 import AddItemToShop from "./components/AddItemToShop.tsx";
 import { Item } from "./models/mainModels";
 import ShowPost from "./components/ShowPost";
+import Modal from "./components/Modal";
 
 export type AddItem = (item : {name: string, quantity: number}) => void
 
@@ -20,13 +21,16 @@ function App() {
       { id: ++shoppingList.length, name: item.name, quantity: item.quantity },
     ]);
 
+  const [openModal, setOpenModal] = useState(false)
 
   return (
     <div className="App">
       <header className="App-header">
+        <ShowPost />
+        <button onClick={() => setOpenModal(true)}>Open modal</button>
+        {openModal && <Modal content={<p>something</p>} setOpenModal={setOpenModal} />}
         <ShowShopList shopList={shoppingList} />
         <AddItemToShop addItem={addItem} />
-        <ShowPost />
       </header>
     </div>
   );
