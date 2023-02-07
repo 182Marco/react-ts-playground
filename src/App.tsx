@@ -4,6 +4,7 @@ import "./App.css";
 import ShowShopList from "./components/ShowShopList";
 import AddItemToShop from "./components/AddItemToShop.tsx";
 import { Item } from "./models/mainModels";
+import ShowPost from "./components/ShowPost";
 
 export type AddItem = (item : {name: string, quantity: number}) => void
 
@@ -28,6 +29,7 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
+        <ShowPost />
         <ShowShopList shopList={shoppingList} />
         <AddItemToShop addItem={addItem} />
         <a
