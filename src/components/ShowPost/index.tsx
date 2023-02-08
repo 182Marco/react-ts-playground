@@ -19,7 +19,7 @@ export const ShowPost = () => {
   };
 
   useEffect(() => {
-    handleFetch(`${process.env.REACT_APP_API}/1`);
+    handleFetch(`${process.env.REACT_APP_API}/posts/1`);
   }, []);
 
   return (

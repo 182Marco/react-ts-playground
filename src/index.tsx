@@ -13,7 +13,7 @@ import reportWebVitals from "./reportWebVitals";
 //  document.getElementById("root") as HTMLElement
 // );
 
-// OLD REACT 18 Gune 2022 WAY 
+// NEW REACT 18 Gune 2022 WAY 
 createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <App />

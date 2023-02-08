@@ -7,12 +7,15 @@ export const CountComp = (): JSX.Element => {
   contRef.current = count;
   // SOLUTION 2
   //useEffect(() => {
-  //  setInterval(() => setCount(c => c + 1), 1000);
+  //  const int = setInterval(() => setCount(c => c + 1), 1000);
+  //  return () =>  clearInterval(int)
   //}, []);
 
   useEffect(() => {
-    setInterval(() => setCount(contRef.current + 1), 1000);
+    const int = setInterval(() => setCount(contRef.current + 1), 1000);
+    return () =>  clearInterval(int)
   }, []);
+
   return (
     <div className="CountComp">
       <h1>{count}</h1>
