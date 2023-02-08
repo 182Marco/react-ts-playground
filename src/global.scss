@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap");
+
+body {
+  margin: 0;
+  font-family: "Quicksand", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+button,
+input[type="submit"] {
+  background-color: transparent;
+  font-size: 20px;
+  font-weight: 700;
+  border: 2px solid pink;
+  color: pink;
+  padding: 7px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  &:hover {
+    transform: scale(1.025);
+  }
+}
