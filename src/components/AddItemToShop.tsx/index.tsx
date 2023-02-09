@@ -49,6 +49,7 @@ export const AddItemToShop = ({
           <input
             type="text"
             id="name"
+            name="name"
             value={state.name}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               handleState(e, "name")
@@ -61,6 +62,7 @@ export const AddItemToShop = ({
             type="number"
             id="quantity"
             value={state.quantity}
+            name="quantity"
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               handleState(e, "quantity")
             }
