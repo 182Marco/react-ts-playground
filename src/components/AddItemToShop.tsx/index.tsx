@@ -1,17 +1,15 @@
 import { useState, useRef } from "react";
 import type { AddItem } from "../../App";
 import { Item } from "../../models/mainModels";
-import './index.scss'
+import './style.scss'
+import { CompState } from "./types";
 
 export const AddItemToShop = ({
   addItem,
 }: {
   addItem: AddItem;
 }): JSX.Element => {
-  interface CompState {
-    name: string;
-    quantity: string;
-  }
+
 
   const initialState: CompState = {
     name: "",
@@ -30,9 +28,6 @@ export const AddItemToShop = ({
     }));
 
   const [validationEr, setValidationEr] = useState<string>();
-
-  const nameRef = useRef<HTMLInputElement>(null);
-  const quantityRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

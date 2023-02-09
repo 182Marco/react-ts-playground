@@ -1,21 +1,15 @@
-import { ReactNode } from "react";
 import DOM from "react-dom";
 import "./index.scss";
+import { ModalType } from "./types";
 
 const overlayRoot = document.getElementById("overlay-root") as HTMLElement;
 
-export const Modal = ({
-  content,
-  setOpenModal,
-}: {
-  content: ReactNode;
-  setOpenModal: (p: boolean) => void;
-}) => (
+export const Modal = ({ content, setOpenModal }: ModalType) => (
   <>
     {DOM.createPortal(
       <>
         <div className="modal">
-          {content} 
+          {content}
           <button onClick={() => setOpenModal(false)}>close</button>
         </div>
       </>,
