@@ -1,5 +1,5 @@
 import { Suspense, useState } from "react";
-import "./App.scss";
+import "./global.scss";
 import { Item } from "./models/mainModels";
 import ShowShopList from "./components/ShowShopList";
 import AddItemToShop from "./components/AddItemToShop.tsx";
