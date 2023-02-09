@@ -16,8 +16,8 @@ test("It's possibile to type a shopping item and then see it on the screen", asy
     user.keyboard('41')
     user.click(done)
 
-    const orange = await screen.findByText('orange')
-    const orangeQ = await screen.findByText('41')
+    const orange = await screen.getByRole('cell', {name: 'orange'})
+    const orangeQ = await screen.getByRole('cell', {name: '41'})
 
     expect(orange).toBeVisible()
     expect(orangeQ).toBeVisible()
