@@ -2,8 +2,12 @@ import {render, screen} from '@testing-library/react'
 import user from '@testing-library/user-event'
 import AddItemToShop from '.'
 
+const mock = jest.fn()
+const renderComp = () => render(<AddItemToShop addItem={mock}/>)
+
 test('It shows a btn to submit', async () => {
-    render(<AddItemToShop addItem={() => null}/>)
+    
+    renderComp()
 
     const btn = await screen.findByText('done')
 
@@ -11,8 +15,8 @@ test('It shows a btn to submit', async () => {
 })
 
 test('It adds an item when the form is submitted', async () => {
-    const mock = jest.fn()
-    render(<AddItemToShop addItem={mock}/>)
+    
+    renderComp()
 
     const name = await screen.findByPlaceholderText('*Name')
     const quantity = await screen.findByPlaceholderText('*Quantity')

@@ -3,9 +3,11 @@ import user from "@testing-library/user-event";
 import ShowShopList from ".";
 import { initialShopList } from "../../utils/mockData";
 
+const renderComp = () => render(<ShowShopList shopList={initialShopList} />);
+
 test("render a number of rows equal to numer of items", async () => {
 
-  const {container} = render(<ShowShopList shopList={initialShopList} />);
+  const {container} = renderComp()
 
   screen.logTestingPlaygroundURL()
 
@@ -14,8 +16,10 @@ test("render a number of rows equal to numer of items", async () => {
   expect(rows).toHaveLength(initialShopList.length)
 });
 
+
 test("Shows a row forEach item passed", async () => {
-  render(<ShowShopList shopList={initialShopList} />);
+
+  renderComp()
 
   initialShopList.forEach(async(obj) => {
     const name = await screen.findByRole('row', {name: obj.name})
