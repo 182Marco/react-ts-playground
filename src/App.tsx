@@ -10,6 +10,7 @@ import { initialShopList } from "./utils/mockData";
 import Display from "./components/Display";
 import { genRandom } from "./utils/number";
 import FallBackUI from "./components/FallBackUi";
+import Add from "./components/Add";
 
 export type AddItem = (item: { name: string; quantity: string }) => void;
 
@@ -61,6 +62,8 @@ function App() {
       <AddItemToShop addItem={addItem} />
       <ShowShopList shopList={shoppingList} />
       <button onClick={doubleUpdater}>update 2 states in 1 batch</button>
+      <h1>Higher Order Component</h1>
+      <Add />
     </div>
   );
 }
