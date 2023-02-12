@@ -14,12 +14,16 @@ import AuthContext from "./context/auth";
 import LogInComp from "./components/LogInComp";
 import MemoPlayground from "./components/MemoPlayground";
 import ShowUseMemo from "./components/ShowUseMemo";
+import rest from "./utils/rest";
 
 export type AddItem = (item: { name: string; quantity: string }) => void;
 
 function App() {
   const [islog, setIslog] = useState(false);
   const [shoppingList, setShoppingList] = useState<Item[]>(initialShopList);
+  const [openModal, setOpenModal] = useState(false);
+  const [pieceOfstate1, setPieceOfstate1] = useState(0);
+  const [pieceOfstate2, setPieceOfstate2] = useState(0);
 
   const url = `${process.env.REACT_APP_API}/photos/`;
 
@@ -28,12 +32,6 @@ function App() {
       ...shoppingList,
       { id: ++shoppingList.length, name: item.name, quantity: item.quantity },
     ]);
-
-  const [openModal, setOpenModal] = useState(false);
-  const [pieceOfstate1, setPieceOfstate1] = useState(0);
-  const [pieceOfstate2, setPieceOfstate2] = useState(0);
-
-  const rest = (t: number) => new Promise(res => setTimeout(res, t));
 
   const doubleUpdater = async () => {
     await rest(500);
