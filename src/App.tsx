@@ -12,6 +12,8 @@ import { genRandom } from "./utils/number";
 import FallBackUI from "./components/FallBackUi";
 import AuthContext from "./context/auth";
 import LogInComp from "./components/LogInComp";
+import MemoPlayground from "./components/MemoPlayground";
+import ShowUseMemo from "./components/ShowUseMemo";
 
 export type AddItem = (item: { name: string; quantity: string }) => void;
 
@@ -69,7 +71,9 @@ function App() {
             <CountComp />
             <AddItemToShop addItem={addItem} />
             <ShowShopList shopList={shoppingList} />
-            <button onClick={doubleUpdater}>update 2 states in 1 batch</button>
+            <MemoPlayground />
+            <ShowUseMemo />
+            <button onClick={doubleUpdater}>update 2 states and re-render once</button>
           </>
         )}
       </div>
