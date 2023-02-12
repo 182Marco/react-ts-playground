@@ -2,7 +2,7 @@ import { Suspense, useState } from "react";
 import "./global.scss";
 import { Item } from "./models/mainModels";
 import ShowShopList from "./components/ShowShopList";
-import AddItemToShop from "./components/AddItemToShop.tsx";
+import AddItemToShop from "./components/AddItemToShop";
 import ShowPost from "./components/ShowPost";
 import Modal from "./components/Modal";
 import CountComp from "./components/CountComp";
