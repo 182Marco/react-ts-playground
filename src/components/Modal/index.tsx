@@ -1,5 +1,5 @@
 import DOM from "react-dom";
-import "./index.scss";
+import "./style.scss";
 import { ModalType } from "./types";
 
 const overlayRoot = document.getElementById("overlay-root") as HTMLElement;

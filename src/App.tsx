@@ -1,4 +1,4 @@
-import { Suspense, useState } from "react";
+import { Suspense, useState, useContext } from "react";
 import "./global.scss";
 import { Item } from "./models/mainModels";
 import ShowShopList from "./components/ShowShopList";
@@ -10,13 +10,16 @@ import { initialShopList } from "./utils/mockData";
 import Display from "./components/Display";
 import { genRandom } from "./utils/number";
 import FallBackUI from "./components/FallBackUi";
+import AuthContext from "./context/auth";
+import LogInComp from "./components/ConsumerExample";
 
 export type AddItem = (item: { name: string; quantity: string }) => void;
 
 function App() {
+  const [islog, setIslog] = useState(false);
   const [shoppingList, setShoppingList] = useState<Item[]>(initialShopList);
 
-  const url =`${process.env.REACT_APP_API}/photos/`
+  const url = `${process.env.REACT_APP_API}/photos/`;
 
   const addItem: AddItem = item =>
     setShoppingList([
@@ -44,24 +47,33 @@ function App() {
   );
 
   return (
-    <div className="App">
-      <Suspense fallback={<FallBackUI />}>
-      <header>
-        {[...Array(3)].map((e,i) => (
-          <Display key={i} url={url + genRandom(1, 40)} />
-        ))}
-        <ShowPost />
-      </header>
-      </Suspense>
-      <button onClick={() => setOpenModal(true)}>Open portal modal</button>
-      {openModal && (
-        <Modal content={<p>something</p>} setOpenModal={setOpenModal} />
-      )}
-      <CountComp />
-      <AddItemToShop addItem={addItem} />
-      <ShowShopList shopList={shoppingList} />
-      <button onClick={doubleUpdater}>update 2 states in 1 batch</button>
-    </div>
+    <AuthContext.Provider value={{ islog, setIslog }}>
+      <div className="App">
+        <LogInComp />
+        {islog && (
+          <>
+            <Suspense fallback={<FallBackUI />}>
+              <header>
+                {[...Array(3)].map((e, i) => (
+                  <Display key={i} url={url + genRandom(1, 40)} />
+                ))}
+                <ShowPost />
+              </header>
+            </Suspense>
+            <button onClick={() => setOpenModal(true)}>
+              Open portal modal
+            </button>
+            {openModal && (
+              <Modal content={<p>something</p>} setOpenModal={setOpenModal} />
+            )}
+            <CountComp />
+            <AddItemToShop addItem={addItem} />
+            <ShowShopList shopList={shoppingList} />
+            <button onClick={doubleUpdater}>update 2 states in 1 batch</button>
+          </>
+        )}
+      </div>
+    </AuthContext.Provider>
   );
 }
 
