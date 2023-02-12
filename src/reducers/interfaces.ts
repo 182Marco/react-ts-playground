@@ -3,7 +3,7 @@ export interface Post {
   body: string;
 }
 
-export interface Error {
+export interface ErrorType {
   exist: boolean;
   errorType: string;
 }
@@ -11,12 +11,21 @@ export interface Error {
 export interface State {
   loading: boolean;
   post: Post;
-  error: Error;
+  error: ErrorType;
 }
 
-export interface Action {
-  type: "FETCH_START" | "FETCH_SUCCESS" | "FETCH_ERROR";
-  payload?: Partial<Post> & Partial<Error>
+export interface Start {
+  type: "FETCH_START",
 }
 
+export interface Success {
+  type: "FETCH_SUCCESS",
+  payload: Post
+}
 
+export interface Error {
+  type: "FETCH_ERROR",
+  payload: ErrorType
+}
+
+export type Action = Start | Success | Error

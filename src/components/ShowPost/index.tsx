@@ -1,8 +1,8 @@
 import logo from "./../../logo.svg";
-import './index.scss'
+import "./index.scss";
 import { useEffect, useReducer } from "react";
 import postReducer, { INITIAL_STATE } from "../../reducers/postReducer";
-import {actionTypesEnum as actions} from "../../reducers/actionTypes";
+import { actionTypesEnum as actions } from "../../reducers/actionTypes";
 
 export const ShowPost = () => {
   const [state, dispatch] = useReducer(postReducer, INITIAL_STATE);
@@ -14,7 +14,10 @@ export const ShowPost = () => {
       const d = await r.json();
       dispatch({ type: actions.FETCH_SUCCESS, payload: d });
     } catch (er) {
-      dispatch({ type: actions.FETCH_ERROR });
+      dispatch({
+        type: actions.FETCH_ERROR,
+        payload: { exist: true, errorType: er as string },
+      });
     }
   };
 
@@ -29,7 +32,7 @@ export const ShowPost = () => {
       {state.loading && (
         <section>
           <img src={logo} className="App-logo" alt="logo" />
-          <p>...Post is loading</p>   
+          <p>...Post is loading</p>
         </section>
       )}
       {state.error.exist && (
