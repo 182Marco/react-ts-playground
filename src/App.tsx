@@ -1,4 +1,4 @@
-import { Suspense, useState, useContext } from "react";
+import { Suspense, useState } from "react";
 import "./global.scss";
 import { Item } from "./models/mainModels";
 import ShowShopList from "./components/ShowShopList";
@@ -11,7 +11,7 @@ import Display from "./components/Display";
 import { genRandom } from "./utils/number";
 import FallBackUI from "./components/FallBackUi";
 import AuthContext from "./context/auth";
-import LogInComp from "./components/ConsumerExample";
+import LogInComp from "./components/LogInComp";
 
 export type AddItem = (item: { name: string; quantity: string }) => void;
 
