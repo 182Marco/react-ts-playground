@@ -18,3 +18,5 @@ export interface Action {
   type: "FETCH_START" | "FETCH_SUCCESS" | "FETCH_ERROR";
   payload?: Partial<Post> & Partial<Error>
 }
+
+
