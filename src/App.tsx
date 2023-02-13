@@ -15,6 +15,7 @@ import LogInComp from "./components/LogInComp";
 import MemoPlayground from "./components/MemoPlayground";
 import ShowUseMemo from "./components/ShowUseMemo";
 import rest from "./utils/rest";
+import useFetch from "./MyHooks/useFetch";
 
 export type AddItem = (item: { name: string; quantity: string }) => void;
 
@@ -45,6 +46,10 @@ function App() {
     "pieceOfstate2: ",
     pieceOfstate2
   );
+  
+  const obj = useFetch(url + 1)
+  const {loading, data, error} = useFetch(url + 1)
+  console.log(obj)
 
   return (
     <AuthContext.Provider value={{ islog, setIslog }}>
