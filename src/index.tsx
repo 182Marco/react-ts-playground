@@ -1,9 +1,9 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { render } from "react-dom";
 import "./global.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { AuthContextProvider } from "./context/auth";
 
 // OLD DEPRECATED WAY -> WITH THIS YOU DON'T GET REACT 18 FEATURES
 //render(
@@ -13,11 +13,13 @@ import reportWebVitals from "./reportWebVitals";
 //  document.getElementById("root") as HTMLElement
 // );
 
-// NEW REACT 18 Gune 2022 WAY 
+// NEW REACT 18 Gune 2022 WAY
 createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <AuthContextProvider>
+      <App />
+    </AuthContextProvider>
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

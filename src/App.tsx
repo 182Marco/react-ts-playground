@@ -1,4 +1,4 @@
-import { Suspense, useState } from "react";
+import { Suspense, useContext, useState } from "react";
 import "./global.scss";
 import { Item } from "./models/mainModels";
 import ShowShopList from "./components/ShowShopList";
@@ -20,11 +20,11 @@ import useFetch from "./MyHooks/useFetch";
 export type AddItem = (item: { name: string; quantity: string }) => void;
 
 function App() {
-  const [islog, setIslog] = useState(false);
   const [shoppingList, setShoppingList] = useState<Item[]>(initialShopList);
   const [openModal, setOpenModal] = useState(false);
   const [pieceOfstate1, setPieceOfstate1] = useState(0);
   const [pieceOfstate2, setPieceOfstate2] = useState(0);
+  const {isLog, setIsLog} = useContext(AuthContext)
 
   const url = `${process.env.REACT_APP_API}/photos/`;
 
@@ -49,13 +49,11 @@ function App() {
   
   const obj = useFetch(url + 1)
   const {loading, data, error} = useFetch(url + 1)
-  console.log(obj)
 
   return (
-    <AuthContext.Provider value={{ islog, setIslog }}>
       <div className="App">
         <LogInComp />
-        {islog && (
+        {isLog && (
           <>
             <Suspense fallback={<FallBackUI />}>
               <header>
@@ -80,7 +78,6 @@ function App() {
           </>
         )}
       </div>
-    </AuthContext.Provider>
   );
 }
 

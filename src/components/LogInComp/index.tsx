@@ -1,24 +1,16 @@
 import { useContext } from "react";
 import AuthContext from "../../context/auth";
-import { loginCall } from "../../utils/mockData";
-import './style.scss'
+import "./style.scss";
 
 export const LogInComp = (): JSX.Element => {
-  const {islog, setIslog}= useContext(AuthContext);
-
-  const handleLogin = async () => {
-     if(islog) {
-      setIslog(false)
-      return
-     }
-     const user = await loginCall()
-     setIslog(user)
-  }
+  const { isLog, setIsLog } = useContext(AuthContext);
 
   return (
     <div className="LogInComp">
-      <button onClick={handleLogin}>{islog? 'exit': 'login'}</button>
-      <span>{islog ? JSON.stringify(islog) : "GUEST"}</span>
+      <button onClick={() => setIsLog(!isLog)}>
+        {isLog ? "exit" : "login"}
+      </button>
+      <span>{isLog ? JSON.stringify(isLog) : "GUEST"}</span>
     </div>
   );
 };
