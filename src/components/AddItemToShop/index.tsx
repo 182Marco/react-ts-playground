@@ -44,10 +44,11 @@ export const AddItemToShop = ({
 
   return (
     <div className="AddItemToShop">
-      <h4>Form to add Item shoppingList </h4>
+      <h2>Form to add Item shoppingList </h2>
       <form onSubmit={handleSubmit}>
-        <p>Each field is required{validationEr}</p>
+        <p>*Each field is required{validationEr}</p>
         <div>
+          <small>{'Below an <Input /> comp with forwardref -> focus from futher at first render'} </small>
           <Input
             ref={itemNameRef}
             id="1"

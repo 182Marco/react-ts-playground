@@ -10,7 +10,7 @@ export const LogInComp = (): JSX.Element => {
       <button onClick={() => setIsLog(!isLog)}>
         {isLog ? "exit" : "login"}
       </button>
-      <span>{isLog ? JSON.stringify(isLog) : "GUEST"}</span>
+      <span>{isLog ? 'LOGGED' : "GUEST"}</span>
     </div>
   );
 };

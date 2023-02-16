@@ -1,0 +1,10 @@
+@import "./vars";
+
+@mixin demo {
+  border: $demo-border;
+  border-radius: $demo-border-rad;
+  padding: 25px;
+  width: 80%;
+  max-width: 700px;
+  margin: 35px 0;
+}

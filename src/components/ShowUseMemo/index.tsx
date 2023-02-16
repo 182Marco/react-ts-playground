@@ -14,7 +14,7 @@ export const ShowUseMemo = () => {
 
   return (
     <div className="ShowUseMemo">
-      <h3>Use memo Demonstration</h3>
+      <h2>Use memo Demonstration</h2>
       <pre>
         Largest Number: <em>{memorized}</em>
       </pre>

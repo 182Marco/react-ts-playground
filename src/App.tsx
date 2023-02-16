@@ -1,30 +1,26 @@
-import { Suspense, useContext, useState } from "react";
+import { useContext, useState } from "react";
 import "./global.scss";
 import { Item } from "./models/mainModels";
 import ShowShopList from "./components/ShowShopList";
 import AddItemToShop from "./components/AddItemToShop";
-import ShowPost from "./components/ShowPost";
 import Modal from "./components/Modal";
 import CountComp from "./components/CountComp";
 import { initialShopList } from "./utils/mockData";
-import Display from "./components/Display";
-import { genRandom } from "./utils/number";
-import FallBackUI from "./components/FallBackUi";
 import AuthContext from "./context/auth";
 import LogInComp from "./components/LogInComp";
 import MemoPlayground from "./components/MemoPlayground";
 import ShowUseMemo from "./components/ShowUseMemo";
-import rest from "./utils/rest";
 import useFetch from "./MyHooks/useFetch";
+import DemoUseImperative from "./components/DemoUseImperative";
+import React18 from "./components/React18";
+import SuspenceDemo from "./components/SuspenceDemo";
 
 export type AddItem = (item: { name: string; quantity: string }) => void;
 
 function App() {
   const [shoppingList, setShoppingList] = useState<Item[]>(initialShopList);
   const [openModal, setOpenModal] = useState(false);
-  const [pieceOfstate1, setPieceOfstate1] = useState(0);
-  const [pieceOfstate2, setPieceOfstate2] = useState(0);
-  const {isLog, setIsLog} = useContext(AuthContext)
+  const { isLog, setIsLog } = useContext(AuthContext);
 
   const url = `${process.env.REACT_APP_API}/photos/`;
 
@@ -34,50 +30,30 @@ function App() {
       { id: ++shoppingList.length, name: item.name, quantity: item.quantity },
     ]);
 
-  const doubleUpdater = async () => {
-    await rest(500);
-    setPieceOfstate1(1);
-    setPieceOfstate1(2);
-  };
-
-  console.log(
-    "pieceOfstate1: ",
-    pieceOfstate1,
-    "pieceOfstate2: ",
-    pieceOfstate2
-  );
-  
-  const obj = useFetch(url + 1)
-  const {loading, data, error} = useFetch(url + 1)
+  // try use of custum hook
+  const obj = useFetch(url + 1);
+  const { loading, data, error } = useFetch(url + 1);
 
   return (
-      <div className="App">
-        <LogInComp />
-        {isLog && (
-          <>
-            <Suspense fallback={<FallBackUI />}>
-              <header>
-                {[...Array(3)].map((e, i) => (
-                  <Display key={i} url={url + genRandom(1, 40)} />
-                ))}
-                <ShowPost />
-              </header>
-            </Suspense>
-            <button onClick={() => setOpenModal(true)}>
-              Open portal modal
-            </button>
-            {openModal && (
-              <Modal content={<p>something</p>} setOpenModal={setOpenModal} />
-            )}
-            <CountComp />
-            <AddItemToShop addItem={addItem} />
-            <ShowShopList shopList={shoppingList} />
-            <MemoPlayground />
-            <ShowUseMemo />
-            <button onClick={doubleUpdater}>update 2 states and re-render once</button>
-          </>
-        )}
-      </div>
+    <div className="App">
+      <LogInComp />
+      {isLog && (
+        <>
+          <AddItemToShop addItem={addItem} />
+          <ShowShopList shopList={shoppingList} />
+          <MemoPlayground />
+          <ShowUseMemo />
+          <React18 />
+          <DemoUseImperative />
+          <CountComp />
+          <SuspenceDemo />
+          <button onClick={() => setOpenModal(true)}>Open portal modal</button>
+          {openModal && (
+            <Modal content={<p>something</p>} setOpenModal={setOpenModal} />
+          )}
+        </>
+      )}
+    </div>
   );
 }
 
