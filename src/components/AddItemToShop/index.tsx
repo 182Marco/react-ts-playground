@@ -1,7 +1,8 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import type { AddItem } from "../../App";
 import { Item } from "../../models/mainModels";
-import './style.scss'
+import Input from "../Input";
+import "./style.scss";
 import { CompState } from "./types";
 
 export const AddItemToShop = ({
@@ -9,14 +10,15 @@ export const AddItemToShop = ({
 }: {
   addItem: AddItem;
 }): JSX.Element => {
-
-
   const initialState: CompState = {
     name: "",
     quantity: "",
   };
 
   const [state, setState] = useState(initialState);
+  const itemNameRef = useRef<HTMLElement>();
+
+  useEffect(() => itemNameRef.current?.focus(), []);
 
   const handleState = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -46,14 +48,13 @@ export const AddItemToShop = ({
       <form onSubmit={handleSubmit}>
         <p>Each field is required{validationEr}</p>
         <div>
-          <input
+          <Input
+            ref={itemNameRef}
+            id="1"
             type="text"
-            id="name"
-            name="name"
             value={state.name}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              handleState(e, "name")
-            }
+            onBlur={(): void => {}}
+            onChange={e => handleState(e, "name")}
             placeholder="*Name"
           />
         </div>
