@@ -1,0 +1,20 @@
+@import "../../scss/mixins";
+
+.ClassComp {
+  @include demo;
+  button {
+    margin: 15px 15px 15px 0;
+  }
+  p {
+    margin: 4px 0;
+  }
+  em {
+    font-weight: 700;
+    margin: 0 0 0 4px;
+  }
+  small {
+    display: inline-block;
+    font-size: 12px;
+    margin-left: 5px;
+  }
+}

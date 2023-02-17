@@ -5,7 +5,7 @@ import ShowShopList from "./components/ShowShopList";
 import AddItemToShop from "./components/AddItemToShop";
 import Modal from "./components/Modal";
 import CountComp from "./components/CountComp";
-import { initialShopList } from "./utils/mockData";
+import { initialShopList, users } from "./utils/mockData";
 import AuthContext from "./context/auth";
 import LogInComp from "./components/LogInComp";
 import MemoPlayground from "./components/MemoPlayground";
@@ -14,6 +14,7 @@ import useFetch from "./MyHooks/useFetch";
 import DemoUseImperative from "./components/DemoUseImperative";
 import React18 from "./components/React18";
 import SuspenceDemo from "./components/SuspenceDemo";
+import ClassComp from "./components/ClassComp";
 
 export type AddItem = (item: { name: string; quantity: string }) => void;
 
@@ -51,6 +52,7 @@ function App() {
           {openModal && (
             <Modal content={<p>something</p>} setOpenModal={setOpenModal} />
           )}
+          <ClassComp users={users}/>
         </>
       )}
     </div>
