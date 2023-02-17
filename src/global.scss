@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap");
-@import './scss/vars.scss';
+@import './scss/vars';
+@import './scss/colors';
+
 
 body {
   margin: 0;
@@ -12,12 +14,12 @@ input {
   margin: 7px 0;
   border-radius: $demo-border-rad;
   padding: 7px 15px;
-  border: 3px solid pink;
-  background-color: rgba(255, 255, 255, 0.05);
-  color: #eee;
+  border: 3px solid $btn-c;
+  background-color: $bg-c;
+  color: $text-c;
   font-weight: 700;
   &:focus{
-    border-color: turquoise;
+    border-color: $focus-c;
     outline: none;
   }
 }
@@ -31,19 +33,20 @@ button,
 input[type="submit"] {
   background-color: transparent;
   font-size: 20px;
-  font-weight: 700;
-  border: 2px solid pink;
-  color: pink;
+  font-weight: 500;
+  border: 1px solid $btn-c;
+  color: $btn-c;
   padding: 7px 15px;
   border-radius: $demo-border-rad;
   cursor: pointer;
   transition: all 0.2s;
   &:hover {
-    transform: scale(1.025);
+    color: $hover-c2;
+    border-color:  $hover-c2;
   }
   &:focus {
-    color: turquoise;
-    border-color: turquoise;
+    color: $focus-c;
+    border-color: $focus-c;
   }
 }
 
@@ -51,8 +54,8 @@ input[type="submit"] {
   $padY: 80px;
   text-align: center;
   padding: $padY 0;
-  background-color: #282c34;
-  color: rgb(235, 235, 235);
+  background-color: $bg-c;
+  color: 	$text-c;
   min-height: calc(100vh - #{$padY * 2});
   display: flex;
   flex-direction: column;
@@ -81,7 +84,7 @@ input[type="submit"] {
 }
 
 .App-link {
-  color: #61dafb;
+  color: $focus-c;
 }
 
 @keyframes App-logo-spin {

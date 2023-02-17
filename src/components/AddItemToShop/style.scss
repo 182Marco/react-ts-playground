@@ -1,3 +1,5 @@
+@import '../../scss/colors.scss';
+
 .AddItemToShop {
   padding: 0 0 30px;
   h2 {
@@ -10,7 +12,7 @@
     p {
       margin: 3px 0;
       font-size: 13px;
-      color: rgb(255, 238, 0);
+      color: $imoport-c;
     }
   }
   input[type="submit"] {

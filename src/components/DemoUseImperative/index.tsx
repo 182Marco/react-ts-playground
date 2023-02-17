@@ -1,4 +1,4 @@
-import { useImperativeHandle, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import ImperModal from "../ImperModal";
 import "./style.scss";
 
