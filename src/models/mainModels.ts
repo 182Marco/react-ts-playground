@@ -8,3 +8,15 @@ export interface User {
     nick: string,
     isSubscriber: boolean;
 }
+
+export const enum Verbs {
+    CONNECT = 'CONNECT',
+    DELETE = 'DELETE',
+    GET = 'GET',
+    HEAD = 'HEAD',
+    OPTIONS = 'OPTIONS',
+    PATCH = 'PATCH',
+    POST = 'POST',
+    PUT = 'PUT',
+    TRACE = 'TRACE',
+}

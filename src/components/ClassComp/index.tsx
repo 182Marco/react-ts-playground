@@ -33,7 +33,7 @@ export class ClassComp extends Component<PropsType, ClassCompState> {
         <div>
           {this.state.showUsers &&
             users.map(u => (
-              <>
+              <div key={u.id}>
                 {(u.nick + u.id)
                   .trim()
                   .toLowerCase()
@@ -49,7 +49,7 @@ export class ClassComp extends Component<PropsType, ClassCompState> {
                     </p>
                   </div>
                 )}
-              </>
+              </div>
             ))}
         </div>
       </div>

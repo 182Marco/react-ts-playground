@@ -4,6 +4,10 @@ import "./global.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { AuthContextProvider } from "./context/auth";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+
+const queryClient = new QueryClient()
 
 // OLD DEPRECATED WAY -> WITH THIS YOU DON'T GET REACT 18 FEATURES
 //render(
@@ -16,9 +20,12 @@ import { AuthContextProvider } from "./context/auth";
 // NEW REACT 18 Gune 2022 WAY
 createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <AuthContextProvider>
-      <App />
-    </AuthContextProvider>
+    <QueryClientProvider client={queryClient}>
+      <AuthContextProvider>
+        <App />
+        <ReactQueryDevtools />
+      </AuthContextProvider>
+    </QueryClientProvider>
   </React.StrictMode>
 );
 
