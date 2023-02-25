@@ -17,6 +17,7 @@ import SuspenceDemo from "./components/SuspenceDemo";
 import ClassComp from "./components/ClassComp";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import rest from "./utils/rest";
+import TryUseQuery from "./components/TryUseQuery";
 
 export type AddItem = (item: { name: string; quantity: string }) => void;
 
@@ -45,32 +46,11 @@ function App() {
   // const { loading, data, error } = obj;
   // console.log(obj);
 
-  const shopData = useQuery(["initialShopList"], () =>
-    rest(3000).then(() => [...initialShopList])
-  );
-
-  const queryClient = useQueryClient()
-
-  const newShopItemMutation = useMutation({
-    mutationFn: () =>
-      rest(1000).then(() =>
-        initialShopList.push({ id: 3, name: "Pasta", quantity: "6" })
-      ),
-      onSuccess: () => queryClient.invalidateQueries(["initialShopList"])
-  });
-
-  console.log("shopData.isError: ", shopData.isError);
-  console.log("shopData.data: ", shopData.data);
-
   return (
     <div className="App">
       <LogInComp />
-      {shopData.isLoading && "LOADING..."}
-      {shopData.isError && <p>{JSON.stringify(shopData.error)}</p>}
-      <div>{JSON.stringify(shopData.data)}</div>
-      <button onClick={() => newShopItemMutation.mutate()}>add pasta</button>
       {isLog && (
-        <>
+        <>         
           <AddItemToShop addItem={addItem} />
           <ShowShopList shopList={shoppingList} />
           <MemoPlayground />
@@ -84,6 +64,7 @@ function App() {
             <Modal content={<p>something</p>} setOpenModal={setOpenModal} />
           )}
           <ClassComp users={users} />
+          <TryUseQuery />
         </>
       )}
     </div>

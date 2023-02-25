@@ -1,0 +1,9 @@
+@import '../../scss/mixins';
+
+.TryUseQuery {
+    margin: 40px 0 30px;
+    @include demo;
+    button {
+        margin-top: 17px
+    }
+}
