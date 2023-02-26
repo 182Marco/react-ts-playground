@@ -2,7 +2,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { initialShopList } from "../../utils/mockData";
 import rest from "../../utils/rest";
 import "./style.scss";
-import Btn, { LandingBtn } from "../styledComp/Btn";
+import Btn, { LandingBtn, SubmitBtn } from "../styledComp/Btn";
 
 export const TryUseQuery = () => {
   const shopData = useQuery(["initialShopList"], () =>
@@ -28,14 +28,16 @@ export const TryUseQuery = () => {
       {shopData.isError && <p>{JSON.stringify(shopData.error)}</p>}
       <div>{JSON.stringify(shopData.data)}</div>
       <Btn onClick={() => newShopItemMutation.mutate()}>add pasta</Btn>
-      <br />
-      <Btn col="teal" onClick={() => newShopItemMutation.mutate()}>
-        add pasta
+      <p>Below example of btn triggering nothing but with it's particular prop for color</p>
+      <Btn col="teal">
+        click me to trigger notthing
       </Btn>
-      <br />
+      <p>{`Below an eample of styled btn with 'as' attribut to become an <a></a>`}</p>
       <LandingBtn as='a' >
-        only dispay btn as a with styled comp
+        {`btn as <a> with styled comp (triggering nothing)`}
       </LandingBtn>
+      <p>{`Example of putting the type='submit' attribute to a btn that could be reusable and exending the same styles of <Btn></Btn>`}</p>
+      <SubmitBtn>{`I'm a submit btn triggering nothing`}</SubmitBtn>
     </div>
   );
 };
