@@ -15,9 +15,8 @@ import DemoUseImperative from "./components/DemoUseImperative";
 import React18 from "./components/React18";
 import SuspenceDemo from "./components/SuspenceDemo";
 import ClassComp from "./components/ClassComp";
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import rest from "./utils/rest";
 import TryUseQuery from "./components/TryUseQuery";
+import StyledCompExamples from "./components/StyledCompExamples";
 
 export type AddItem = (item: { name: string; quantity: string }) => void;
 
@@ -65,6 +64,7 @@ function App() {
           )}
           <ClassComp users={users} />
           <TryUseQuery />
+          <StyledCompExamples />
         </>
       )}
     </div>
