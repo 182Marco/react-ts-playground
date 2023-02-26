@@ -16,7 +16,7 @@ export class ClassComp extends Component<PropsType, ClassCompState> {
   render() {
     return (
       <div className="ClassComp">
-        <h1>This is a class component demo</h1>
+        <h2>This is a class component demo</h2>
         <button
           onClick={() => this.setState(s => ({ showUsers: !s.showUsers }))}
         >
