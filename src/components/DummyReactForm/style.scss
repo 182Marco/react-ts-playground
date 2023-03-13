@@ -1,0 +1,24 @@
+@import "../../scss/mixins.scss";
+
+.DummyReactForm {
+  @include demo;
+  padding: 35px 25px 35px;
+  h2 {
+    margin-top: 0
+  }
+  form {
+    @include flex(column);
+  }
+  form,
+  button {
+    margin-top: 30px;
+  }
+
+  button {
+    width: 60%;
+  }
+  button,
+  input {
+    width: 60%;
+  }
+}

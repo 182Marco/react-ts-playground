@@ -1,5 +1,5 @@
-import { useContext, useState } from "react";
 import "./global.scss";
+import { useContext, useState } from "react";
 import { Item } from "./models/mainModels";
 import ShowShopList from "./components/ShowShopList";
 import AddItemToShop from "./components/AddItemToShop";
@@ -17,6 +17,7 @@ import SuspenceDemo from "./components/SuspenceDemo";
 import ClassComp from "./components/ClassComp";
 import TryUseQuery from "./components/TryUseQuery";
 import StyledCompExamples from "./components/StyledCompExamples";
+import DummyReactForm from "./components/DummyReactForm";
 
 export type AddItem = (item: { name: string; quantity: string }) => void;
 
@@ -65,6 +66,7 @@ function App() {
           <ClassComp users={users} />
           <TryUseQuery />
           <StyledCompExamples />
+          <DummyReactForm />
         </>
       )}
     </div>
