@@ -1,0 +1,41 @@
+@import url("../../scss/vars.scss");
+@import "../../scss/mixins.scss";
+@import "../../scss/colors.scss";
+
+nav {
+  margin-bottom: 40px;
+  list-style: none;
+  @include flex(row, flex-start, center);
+  @include demo;
+  border: none;
+  padding: 0;
+  a {
+    flex-shrink: 0;
+    font-weight: 700;
+    color: $focus-c;
+    text-decoration: none;
+    transition: color 0.3s;
+    position: relative;
+    &:not(:last-of-type) {
+      margin-right: 25px;
+    }
+    &:hover {
+      color: $btn-c;
+    }
+    &.active {
+      &::after {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        top: 120%;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: $focus-c;
+        @include roundElement(5px);
+      }
+    }
+    &.active:hover::after {
+      background-color: $btn-c;
+    }
+  }
+}

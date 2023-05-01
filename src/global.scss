@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap");
-@import './scss/vars';
-@import './scss/colors';
-
+@import "./scss/vars";
+@import "./scss/colors";
+@import "./scss/mixins";
 
 body {
   margin: 0;
@@ -18,7 +18,7 @@ input {
   background-color: $bg-c;
   color: $text-c;
   font-weight: 700;
-  &:focus{
+  &:focus {
     border-color: $focus-c;
     outline: none;
   }
@@ -42,7 +42,7 @@ input[type="submit"] {
   transition: all 0.2s;
   &:hover {
     color: $hover-c2;
-    border-color:  $hover-c2;
+    border-color: $hover-c2;
   }
   &:focus {
     color: $focus-c;
@@ -51,16 +51,13 @@ input[type="submit"] {
 }
 
 .App {
-  $padY: 80px;
+  $padY: 30px;
   text-align: center;
   padding: $padY 0;
   background-color: $bg-c;
-  color: 	$text-c;
+  color: $text-c;
   min-height: calc(100vh - #{$padY * 2});
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  @include flex(column, flex-start);
   font-size: calc(10px + 2vmin);
   header {
     display: flex;
