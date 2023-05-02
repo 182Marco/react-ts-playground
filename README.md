@@ -1,3 +1,9 @@
 # Having the progect working with fake db
 
-json-server --watch db.json
+## run:
+
+**npm run serve**
+
+or
+
+**json-server --watch db.json**
