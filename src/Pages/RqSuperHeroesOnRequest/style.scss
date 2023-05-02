@@ -1,0 +1,9 @@
+@import "../../scss/mixins.scss";
+
+.RqSuperHeroesOnRequest {
+  @include demo();
+  border: none;
+  h2 {
+    overflow-wrap: break-word;
+  }
+}
