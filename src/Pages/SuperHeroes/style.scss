@@ -1,0 +1,6 @@
+@import "../../scss/mixins.scss";
+
+.superHeroes {
+  @include demo();
+  border: none;
+}

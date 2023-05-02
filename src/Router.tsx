@@ -17,11 +17,11 @@ export const routes: RouteObj[] = [
     to: "/main-pageheroes",
     pageComp: <MainPageHeoroes />,
   },
-  { name: "Super Heroes", to: "/super-heroes", pageComp: <RqSuperHeroes /> },
+  { name: "Super Heroes", to: "/super-heroes", pageComp: <SuperHeroes /> },
   {
     name: "Rq super Heroes",
     to: "/rq-super-heroes",
-    pageComp: <SuperHeroes />,
+    pageComp: <RqSuperHeroes />,
   },
 ];
 

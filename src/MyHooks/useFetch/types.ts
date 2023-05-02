@@ -1,7 +1,8 @@
 export interface FetchingObj {
-   loading: boolean;
-   error: string;
-   data?: {[key: string] : string}[];
+  isLoading: boolean;
+  error: string;
+  data?: { [key: string]: string }[];
+  isErrror: boolean;
 }
 
-export default FetchingObj
+export default FetchingObj;

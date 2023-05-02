@@ -5,10 +5,9 @@ import FetchingObj from "./types";
 export const useFetch = (
   url: string,
   method: Verbs = Verbs.GET,
-  content?: any
+  content?: Object
 ): FetchingObj => {
-
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setisLoading] = useState(false);
   const [data, setData] = useState();
   const [error, setError] = useState("");
 
@@ -21,14 +20,14 @@ export const useFetch = (
   };
 
   const call = async () => {
-    setLoading(true);
+    setisLoading(true);
     try {
       const r = await fetch(url, reqObj);
       const d = await r.json();
-      setLoading(false);
+      setisLoading(false);
       setData(d);
     } catch (er) {
-      setLoading(false);
+      setisLoading(false);
       setError(er as string);
     }
   };
@@ -38,7 +37,8 @@ export const useFetch = (
   }, []);
 
   return {
-    loading,
+    isErrror: !!error,
+    isLoading,
     error,
     data,
   };
