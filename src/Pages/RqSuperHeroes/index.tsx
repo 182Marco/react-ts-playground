@@ -1,14 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { Heroes } from "../../models/mainModels";
+import { fetchHeroes } from "../../utils/api";
 import "./style.scss";
-
-const fetchHeroes = () => axios.get("http://localhost:3000/superheroesdata");
 
 const RqSuperHeroes = () => {
   const { isLoading, data, isError, error } = useQuery(
-    ["superHeores"],
-    fetchHeroes
+    ["superHeores", "2"],
+    fetchHeroes,
+    {
+      staleTime: 30000,
+    }
   );
 
   const heroes: Heroes = data?.data;

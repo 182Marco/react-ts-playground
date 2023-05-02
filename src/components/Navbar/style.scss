@@ -9,6 +9,8 @@ nav {
   @include demo;
   border: none;
   padding: 0;
+  overflow-x: auto;
+  padding-bottom: 50px;
   a {
     flex-shrink: 0;
     font-weight: 700;
