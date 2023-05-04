@@ -22,3 +22,9 @@ export const enum Verbs {
 }
 
 export type Heroes = { id: string; name: string; alterEgo: string }[];
+
+export interface IQueryObj {
+  name: string;
+  alterEgo: string;
+  index: number;
+}

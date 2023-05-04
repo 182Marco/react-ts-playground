@@ -1,4 +1,4 @@
-import useFetch from "../../MyHooks/useFetch";
+import useFetch from "../../Hooks/useFetch";
 import { superHeroEndPoint } from "../../utils/api";
 import "./style.scss";
 
