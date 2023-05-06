@@ -10,6 +10,7 @@ import RqSuperHeroes from "./Pages/RqSuperHeroes";
 import MainPageHeoroes from "./Pages/MainPageHeoroes";
 import { RouteObj } from "./utils/routerModels";
 import RqSuperHeroesOnRequest from "./Pages/RqSuperHeroesOnRequest";
+import SuperHeroDetails from "./Pages/SuperHeroDetails/SuperHeroDetails";
 
 export const routes: RouteObj[] = [
   { name: "Home", to: "/", isIndex: true, pageComp: <Home /> },
@@ -28,6 +29,12 @@ export const routes: RouteObj[] = [
     name: "super heros on click",
     to: "/super-heros-on-click",
     pageComp: <RqSuperHeroesOnRequest />,
+  },
+  {
+    name: "super hero detail",
+    to: "/super-heros-details/:id",
+    pageComp: <SuperHeroDetails />,
+    isInNavbar: false,
   },
 ];
 

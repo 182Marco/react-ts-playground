@@ -17,14 +17,17 @@ export const Navbar = () => {
     <>
       <nav>
         {routes.map(e => (
-          <Link
-            key={e.to}
-            to={e.to}
-            className={e.to === pathname ? "active" : ""}
-            ref={e.to === pathname ? el : undefined}
-          >
-            {e.name}
-          </Link>
+          <span key={e.to}>
+            {e.isInNavbar !== false && (
+              <Link
+                to={e.to}
+                className={e.to === pathname ? "active" : ""}
+                ref={e.to === pathname ? el : undefined}
+              >
+                {e.name}
+              </Link>
+            )}
+          </span>
         ))}
       </nav>
       <Outlet />

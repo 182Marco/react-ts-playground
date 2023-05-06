@@ -3,7 +3,7 @@ import { superHeroEndPoint } from "../../utils/api";
 import "./style.scss";
 
 const SuperHeroes = () => {
-  const { isLoading, isErrror, error, data } = useFetch(superHeroEndPoint);
+  const { isLoading, isErrror, error, data } = useFetch(superHeroEndPoint());
 
   return (
     <div className="superHeroes">

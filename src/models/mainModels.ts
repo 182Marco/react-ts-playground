@@ -25,6 +25,7 @@ export type Heroes = { id: string; name: string; alterEgo: string }[];
 
 export interface IQueryObj {
   name: string;
+  id: number;
   alterEgo: string;
   index: number;
 }

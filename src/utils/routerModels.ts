@@ -5,4 +5,5 @@ export interface RouteObj {
   to: string;
   isIndex?: boolean;
   pageComp: ReactNode;
+  isInNavbar?: undefined | boolean;
 }

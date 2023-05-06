@@ -1,9 +1,16 @@
 @import "../../scss/mixins.scss";
+@import "../../scss/colors.scss";
 
 .RqSuperHeroesOnRequest {
   @include demo();
   border: none;
-  h2 {
-    overflow-wrap: break-word;
+  a {
+    color: $focus-c;
+    &:visited {
+      color: $text-c;
+    }
+    h2 {
+      overflow-wrap: break-word;
+    }
   }
 }

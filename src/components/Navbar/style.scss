@@ -3,6 +3,7 @@
 @import "../../scss/colors.scss";
 
 nav {
+  display: flex;
   margin-bottom: 40px;
   list-style: none;
   @include flex(row, flex-start, center);
@@ -11,16 +12,19 @@ nav {
   padding: 0;
   overflow-x: auto;
   padding-bottom: 50px;
-  a {
+  span {
     flex-shrink: 0;
+    &:not(:last-of-type) {
+      margin-right: 25px;
+    }
+  }
+  a {
     font-weight: 700;
     color: $focus-c;
     text-decoration: none;
     transition: color 0.3s;
     position: relative;
-    &:not(:last-of-type) {
-      margin-right: 25px;
-    }
+
     &:hover {
       color: $btn-c;
     }
