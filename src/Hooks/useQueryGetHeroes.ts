@@ -5,14 +5,13 @@ import { fetchHeroes } from "../utils/api";
 export const useQueryGetHeroes = (
   onSuccess: () => void,
   onError: () => void,
-  isEnabled = true,
-  id?: number | string
+  isEnabled = true
 ) => {
-  return useQuery(["superHeores"], () => fetchHeroes(id), {
+  return useQuery(["superHeores", 1], () => fetchHeroes(), {
     enabled: isEnabled,
     onSuccess, // key and v same because of import
     onError,
-    select: (data: { data: IQueryObj[] | IQueryObj }) => {
+    select: ({ data }: { data: IQueryObj[] }) => {
       console.log(
         `Here you can do something with the data like changeing format or log them ${data}`
       );
@@ -21,4 +20,8 @@ export const useQueryGetHeroes = (
   });
 };
 
-export default useQueryGetHeroes;
+export const useGetHeroById = (id?: number | string) => {
+  return useQuery(["superHeores", 2], () => fetchHeroes(id), {
+    select: ({ data }): IQueryObj => data,
+  });
+};

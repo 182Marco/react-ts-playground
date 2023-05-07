@@ -1,9 +1,9 @@
 import useFetch from "../../Hooks/useFetch";
-import { superHeroEndPoint } from "../../utils/api";
+import { allSuperHersoEndPoint } from "../../utils/api";
 import "./style.scss";
 
 const SuperHeroes = () => {
-  const { isLoading, isErrror, error, data } = useFetch(superHeroEndPoint());
+  const { isLoading, isErrror, error, data } = useFetch(allSuperHersoEndPoint);
 
   return (
     <div className="superHeroes">

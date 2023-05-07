@@ -1,4 +1,4 @@
-import useQueryGetHeroes from "../../Hooks/useQueryGetHeroes";
+import { useQueryGetHeroes } from "../../Hooks/useQueryGetHeroes";
 import { onError, onSuccess } from "./utils";
 import "./style.scss";
 import { Link } from "react-router-dom";
@@ -12,8 +12,8 @@ const RqSuperHeroesOnRequest = () => {
       <button onClick={() => refetch()}>Fetch Heros</button>
       <h2>{isError && JSON.stringify(error)}</h2>
       <h2>{isLoading && fetchStatus !== "idle" && "loading..."}</h2>
-      {Array.isArray(data?.data) &&
-        data?.data.map(obj => (
+      {data &&
+        data?.map(obj => (
           <Link to={`/super-heros-details/${obj.id}`} key={obj.id}>
             <h2>
               {`(${obj.id})`} {obj.name}
