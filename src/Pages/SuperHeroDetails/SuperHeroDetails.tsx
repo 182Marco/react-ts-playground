@@ -4,7 +4,7 @@ import { useParams } from "react-router";
 export const SuperHeroDetails = () => {
   const { id } = useParams();
 
-  const { isLoading, data, isError, error } = useGetHeroById(id);
+  const { isLoading, data, isError, error } = useGetHeroById(id || "");
   return (
     <>
       {isError && (

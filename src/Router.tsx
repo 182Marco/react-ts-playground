@@ -11,6 +11,7 @@ import MainPageHeoroes from "./Pages/MainPageHeoroes";
 import { RouteObj } from "./utils/routerModels";
 import RqSuperHeroesOnRequest from "./Pages/RqSuperHeroesOnRequest";
 import SuperHeroDetails from "./Pages/SuperHeroDetails/SuperHeroDetails";
+import DinamicParallelQueries from "./Pages/DinamicParallelQueries";
 
 export const routes: RouteObj[] = [
   { name: "Home", to: "/", isIndex: true, pageComp: <Home /> },
@@ -35,6 +36,11 @@ export const routes: RouteObj[] = [
     to: "/super-heros-details/:id",
     pageComp: <SuperHeroDetails />,
     isInNavbar: false,
+  },
+  {
+    name: "dinamic parallel queries",
+    to: "/dinamic-parallel-queries",
+    pageComp: <DinamicParallelQueries ids={[1, 3]} />,
   },
 ];
 

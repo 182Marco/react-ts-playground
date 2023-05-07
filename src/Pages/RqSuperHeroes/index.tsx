@@ -5,7 +5,7 @@ import "./style.scss";
 
 const RqSuperHeroes = () => {
   const { isLoading, data, isError, error } = useQuery(
-    ["superHeores", "2"],
+    ["superHeores", "4567"],
     () => fetchHeroes(),
     {
       staleTime: 30000,

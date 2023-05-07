@@ -20,8 +20,8 @@ export const useQueryGetHeroes = (
   });
 };
 
-export const useGetHeroById = (id?: number | string) => {
-  return useQuery(["superHeores", 2], () => fetchHeroes(id), {
+export const useGetHeroById = (id: number | string) => {
+  return useQuery(["superHeores", id], () => fetchHeroes(id), {
     select: ({ data }): IQueryObj => data,
   });
 };
