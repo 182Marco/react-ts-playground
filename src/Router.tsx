@@ -39,8 +39,9 @@ export const routes: RouteObj[] = [
   },
   {
     name: "dinamic parallel queries",
-    to: "/dinamic-parallel-queries",
-    pageComp: <DinamicParallelQueries ids={[1, 3]} />,
+    to: "/dinamic-parallel-queries/:ids",
+    pageComp: <DinamicParallelQueries />,
+    isInNavbar: false,
   },
 ];
 
