@@ -3,17 +3,54 @@
     {
       "id": 1,
       "name": "Batman",
-      "alterEgo": "Bruce Wayne"
+      "alterEgo": "Bruce Wayne",
+      "merchandiseStoreId": 11
     },
     {
       "id": 2,
       "name": "Superman",
-      "alterEgo": "Clark Kent"
+      "alterEgo": "Clark Kent",
+      "merchandiseStoreId": 22
     },
     {
       "id": 3,
       "name": "Wonder Woman",
-      "alterEgo": "Princess Diana"
+      "alterEgo": "Princess Diana",
+      "merchandiseStoreId": 33
+    }
+  ],
+  "superHeroStores": [
+    {
+      "id": 11,
+      "name": "Batman store",
+      "supplierId": 111
+    },
+    {
+      "id": 22,
+      "name": "Superman store",
+      "supplierId": 222
+    },
+    {
+      "id": 33,
+      "name": "Wonder Woman store",
+      "supplierId": 333
+    }
+  ],
+  "Suppliers": [
+    {
+      "id": 111,
+      "custormer": "Batman store",
+      "name": "technological nerd"
+    },
+    {
+      "id": 222,
+      "custormer": "Superman store",
+      "name": "Messianic nerd"
+    },
+    {
+      "id": 333,
+      "custormer": "Wonder Woman store",
+      "name": "horny nerd"
     }
   ]
 }

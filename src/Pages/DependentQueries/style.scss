@@ -1,0 +1,10 @@
+@import url("../../scss/vars.scss");
+@import "../../scss/mixins.scss";
+@import "../../scss/colors.scss";
+
+.dipendentQuery {
+  @include demo;
+  pre {
+    white-space: pre-wrap;
+  }
+}

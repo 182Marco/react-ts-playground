@@ -21,7 +21,12 @@ export const enum Verbs {
   TRACE = "TRACE",
 }
 
-export type Heroes = { id: string; name: string; alterEgo: string }[];
+export type Heroes = {
+  id: number;
+  name: string;
+  alterEgo: string;
+  merchandiseStoreId: number;
+}[];
 
 export interface IQueryObj {
   name: string;

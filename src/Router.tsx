@@ -12,6 +12,7 @@ import { RouteObj } from "./utils/routerModels";
 import RqSuperHeroesOnRequest from "./Pages/RqSuperHeroesOnRequest";
 import SuperHeroDetails from "./Pages/SuperHeroDetails/SuperHeroDetails";
 import DinamicParallelQueries from "./Pages/DinamicParallelQueries";
+import DependentQueries from "./Pages/DependentQueries";
 
 export const routes: RouteObj[] = [
   { name: "Home", to: "/", isIndex: true, pageComp: <Home /> },
@@ -30,6 +31,11 @@ export const routes: RouteObj[] = [
     name: "super heros on click",
     to: "/super-heros-on-click",
     pageComp: <RqSuperHeroesOnRequest />,
+  },
+  {
+    name: "dependent queries",
+    to: "/dependent queries",
+    pageComp: <DependentQueries />,
   },
   {
     name: "super hero detail",
