@@ -7,20 +7,15 @@ import Navbar from "./components/Navbar";
 import SuperHeroes from "./Pages/SuperHeroes";
 import Home from "./Pages/Home";
 import RqSuperHeroes from "./Pages/RqSuperHeroes";
-import MainPageHeoroes from "./Pages/MainPageHeoroes";
 import { RouteObj } from "./utils/routerModels";
 import RqSuperHeroesOnRequest from "./Pages/RqSuperHeroesOnRequest";
 import SuperHeroDetails from "./Pages/SuperHeroDetails/SuperHeroDetails";
 import DinamicParallelQueries from "./Pages/DinamicParallelQueries";
 import DependentQueries from "./Pages/DependentQueries";
+import PaginatedQueries from "./Pages/PaginatedQueries";
 
 export const routes: RouteObj[] = [
   { name: "Home", to: "/", isIndex: true, pageComp: <Home /> },
-  {
-    name: "Main Page Heros",
-    to: "/main-pageheroes",
-    pageComp: <MainPageHeoroes />,
-  },
   { name: "Super Heroes", to: "/super-heroes", pageComp: <SuperHeroes /> },
   {
     name: "Rq super Heroes",
@@ -36,6 +31,11 @@ export const routes: RouteObj[] = [
     name: "dependent queries",
     to: "/dependent queries",
     pageComp: <DependentQueries />,
+  },
+  {
+    name: "paginated queries",
+    to: "/paginated-queries",
+    pageComp: <PaginatedQueries />,
   },
   {
     name: "super hero detail",
