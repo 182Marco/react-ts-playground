@@ -1,8 +1,15 @@
-@import url('../../scss/vars.scss');
+@import url("../../scss/vars.scss");
+@import "../../scss/mixins.scss";
 
 .LogInComp {
-    margin-bottom: 15PX;
-    button {
-        margin-right: 10px;
-    }
+  @include demo;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 auto;
+  border: none;
+  padding: 0;
+  button {
+    margin-left: 10px;
+    min-width: 75px;
+  }
 }

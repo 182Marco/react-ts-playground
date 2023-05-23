@@ -7,10 +7,10 @@ export const LogInComp = (): JSX.Element => {
 
   return (
     <div className="LogInComp">
+      <span>{isLog ? "LOGGED" : "GUEST"}</span>
       <button onClick={() => setIsLog(!isLog)}>
         {isLog ? "exit" : "login"}
       </button>
-      <span>{isLog ? 'LOGGED' : "GUEST"}</span>
     </div>
   );
 };
