@@ -26,4 +26,5 @@ export const fetchStoresById: IfetchById = id =>
 export const fetchSupplierById: IfetchById = id =>
   axios.get(getEndPoint(SuppliersEndPoint, id));
 
-export const fetchColors = (n: number) => axios.get(colorsEndPoint(n));
+export const fetchColors = (n: number, limit: number) =>
+  axios.get(colorsEndPoint(n, limit));
