@@ -2,6 +2,7 @@
 
 .RqSuperHeroes {
   @include demo();
+  @include marginFromNav();
   border: none;
   h2 {
     overflow-wrap: break-word;

@@ -3,6 +3,7 @@
 
 .superHeroes {
   @include demo();
+  @include marginFromNav;
   border: none;
   pre {
     border: 1px solid transparent;

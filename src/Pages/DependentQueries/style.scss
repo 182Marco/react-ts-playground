@@ -4,6 +4,7 @@
 
 .dipendentQuery {
   @include demo;
+  @include marginFromNav;
   pre {
     white-space: pre-wrap;
   }

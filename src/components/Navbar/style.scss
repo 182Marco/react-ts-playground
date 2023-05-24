@@ -4,14 +4,14 @@
 
 nav {
   display: flex;
-  margin-bottom: 40px;
   list-style: none;
   @include flex(row, flex-start, center);
-  @include demo;
-  border: none;
-  padding: 0;
   overflow-x: auto;
-  padding-bottom: 50px;
+  margin-top: 0;
+  padding: 17px 20px 25px;
+  top: 85px;
+  position: fixed;
+  background-color: $bg-c;
   span {
     flex-shrink: 0;
     &:not(:last-of-type) {

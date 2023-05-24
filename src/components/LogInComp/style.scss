@@ -3,6 +3,7 @@
 
 .LogInComp {
   @include demo;
+  @include marginFromNav;
   display: flex;
   justify-content: flex-end;
   margin: 0 auto;
