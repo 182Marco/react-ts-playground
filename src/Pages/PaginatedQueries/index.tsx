@@ -16,7 +16,6 @@ export const PaginatedQueries = () => {
     data,
     hasNextPage,
     fetchNextPage,
-    isFetching,
     isFetchingNextPage,
   } = useInfiniteQuery(
     ["colors", paginationNum],
@@ -37,17 +36,16 @@ export const PaginatedQueries = () => {
       <h1>Infinite scroll query</h1>
       {isLoading && <h2>is Loading ...</h2>}
       {isError && <h2>There is an Error</h2>}
-      {data &&
-        data?.pages.map((ar, i) => (
-          <div key={i}>
-            {ar.data.map((e: Color) => (
-              <h4 key={e.id}>
-                <em>{e.name}: </em>
-                <span>{e.hex}</span>
-              </h4>
-            ))}
-          </div>
-        ))}
+      {data?.pages.map((ar, i) => (
+        <div key={i}>
+          {ar.data.map((e: Color) => (
+            <h4 key={e.id}>
+              <em>{e.name}: </em>
+              <span>{e.hex}</span>
+            </h4>
+          ))}
+        </div>
+      ))}
       {isFetchingNextPage && <h2>...loading</h2>}
       <span ref={elOnPagebuttom}></span>
     </div>
