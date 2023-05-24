@@ -11,7 +11,7 @@ import {
 export const allSuperHersoEndPoint = `http://localhost:3000/superheroesdata`;
 export const HeroStoresEndPoint = `http://localhost:3000/superHeroStores`;
 export const SuppliersEndPoint = `http://localhost:3000/Suppliers`;
-export const colorsEndPoint = (n = 1, lim = 10) =>
+export const colorsEndPoint = (n = 1, lim = 30) =>
   `http://localhost:3000/colors?_limit=${lim}&_page=${n}`;
 
 export const getEndPoint: IgetEndPoint = (endPoint, id = "") =>
@@ -31,5 +31,5 @@ export const fetchStoresById: IfetchById = id =>
 export const fetchSupplierById: IfetchById = id =>
   axios.get(getEndPoint(SuppliersEndPoint, id));
 
-export const fetchColors = (n: number, limit: number) =>
+export const fetchColors = (n: number, limit = 30) =>
   axios.get(colorsEndPoint(n, limit));

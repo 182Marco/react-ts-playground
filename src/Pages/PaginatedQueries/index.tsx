@@ -1,11 +1,14 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useIntersectionObserver } from "../../Hooks/useIntersectionObserver";
 import { fetchColors } from "../../utils/api";
 import { Color } from "../../utils/api.models";
 import "./style.scss";
 
 export const PaginatedQueries = () => {
-  const [paginationNum, setPaginationNum] = useState(1);
+  const [paginationNum] = useState(1);
+  const elOnPagebuttom = useRef<HTMLSpanElement>(null);
+  const { isIntersecting } = useIntersectionObserver(elOnPagebuttom, {}) || {};
 
   const {
     isLoading,
@@ -17,11 +20,17 @@ export const PaginatedQueries = () => {
     isFetchingNextPage,
   } = useInfiniteQuery(
     ["colors", paginationNum],
-    () => fetchColors(paginationNum, 5),
+    () => fetchColors(paginationNum, 10),
     {
       getNextPageParam: (lastPage, pages) => pages.length + 1,
     }
   );
+
+  useEffect(() => {
+    if (isIntersecting && hasNextPage) {
+      fetchNextPage();
+    }
+  }, [isIntersecting, hasNextPage]);
 
   return (
     <div className="paginatedQueries">
@@ -40,9 +49,7 @@ export const PaginatedQueries = () => {
           </div>
         ))}
       {isFetchingNextPage && <h2>...loading</h2>}
-      <button disabled={!hasNextPage} onClick={() => fetchNextPage()}>
-        load more
-      </button>
+      <span ref={elOnPagebuttom}></span>
     </div>
   );
 };
