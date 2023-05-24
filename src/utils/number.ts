@@ -1,1 +1,2 @@
-export const genRandom = (min: number, max: number) => Math.floor(Math.random() * (max - min) ) + min
+export const genRandom = (min = 1, max = 99999) =>
+  Math.floor(Math.random() * (max - min)) + min;

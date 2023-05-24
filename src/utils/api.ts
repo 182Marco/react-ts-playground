@@ -1,9 +1,11 @@
 import axios from "axios";
+import { Heroes, IQueryObj } from "../models/mainModels";
 import {
   Color,
   IfetchById,
   IfetchByIdOrGetAll,
   IgetEndPoint,
+  IPostHero,
 } from "./api.models";
 
 export const allSuperHersoEndPoint = `http://localhost:3000/superheroesdata`;
@@ -19,6 +21,9 @@ export const fetchHeroes: IfetchByIdOrGetAll = id =>
   axios.get(
     id ? getEndPoint(allSuperHersoEndPoint, id) : allSuperHersoEndPoint
   );
+
+export const postHero: IPostHero = newHero =>
+  axios.post(allSuperHersoEndPoint, newHero);
 
 export const fetchStoresById: IfetchById = id =>
   axios.get(getEndPoint(HeroStoresEndPoint, id));

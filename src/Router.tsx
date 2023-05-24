@@ -29,7 +29,7 @@ export const routes: RouteObj[] = [
   },
   {
     name: "dependent queries",
-    to: "/dependent queries",
+    to: "/dependent-queries",
     pageComp: <DependentQueries />,
   },
   {

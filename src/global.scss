@@ -48,6 +48,10 @@ input[type="submit"] {
     color: $focus-c;
     border-color: $focus-c;
   }
+  &:disabled {
+    color: $danger;
+    border-color: $danger;
+  }
 }
 
 .App {

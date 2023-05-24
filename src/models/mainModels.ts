@@ -32,5 +32,5 @@ export interface IQueryObj {
   name: string;
   id: number;
   alterEgo: string;
-  index: number;
+  index?: number;
 }

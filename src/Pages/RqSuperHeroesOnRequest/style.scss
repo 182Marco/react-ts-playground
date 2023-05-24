@@ -4,6 +4,8 @@
 .RqSuperHeroesOnRequest {
   @include demo();
   border: none;
+  margin-top: 0;
+  padding-top: 0;
   a {
     color: $focus-c;
     &:visited {
@@ -11,6 +13,16 @@
     }
     h2 {
       overflow-wrap: break-word;
+    }
+  }
+  header {
+    margin-bottom: 70px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 12px;
+    input {
+      width: 100%;
+      flex-grow: 1;
     }
   }
 }
