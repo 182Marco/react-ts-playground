@@ -1,8 +1,9 @@
 @import "../../scss/mixins.scss";
+@import "../../scss/vars.scss";
 
 .RqSuperHeroes {
   @include demo();
-  @include marginFromNav();
+  margin-top: $marginFromNav;
   border: none;
   h2 {
     overflow-wrap: break-word;

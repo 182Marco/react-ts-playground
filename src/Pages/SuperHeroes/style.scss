@@ -1,9 +1,10 @@
 @import "../../scss/mixins.scss";
 @import "../../scss/colors.scss";
+@import "../../scss/vars.scss";
 
 .superHeroes {
   @include demo();
-  @include marginFromNav;
+  margin-top: $marginFromNav;
   border: none;
   pre {
     border: 1px solid transparent;

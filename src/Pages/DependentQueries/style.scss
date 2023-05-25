@@ -1,10 +1,11 @@
 @import url("../../scss/vars.scss");
 @import "../../scss/mixins.scss";
 @import "../../scss/colors.scss";
+@import "../../scss/vars.scss";
 
 .dipendentQuery {
   @include demo;
-  @include marginFromNav;
+  margin-top: $marginFromNav;
   pre {
     white-space: pre-wrap;
   }
